@@ -1,0 +1,24 @@
+mkdir sample
+cd sample
+git checkout gh-pages
+git config --global core.autocrlf true
+dotnet new gitignore
+git - add, commit and push
+
+dotnet publish -c Release -o release
+git checkout master
+mv release ../temp-release
+rm -r bin
+rm -r obj
+tree ../temp-release
+mv ../temp-release/wwwroot/*
+"* binary" >>.gitattributes
+git - add, commit and push
+
+git push --set-upstream origin gh-pages
+git - add, commit and push
+
+cp .\index.html 404.html
+git - add, commit and push
+
+
